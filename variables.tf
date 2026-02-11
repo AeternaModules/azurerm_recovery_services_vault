@@ -33,16 +33,16 @@ EOT
     resource_group_name                = string
     sku                                = string
     classic_vmware_replication_enabled = optional(bool)
-    cross_region_restore_enabled       = optional(bool, false)
+    cross_region_restore_enabled       = optional(bool) # Default: false
     immutability                       = optional(string)
-    public_network_access_enabled      = optional(bool, true)
-    soft_delete_enabled                = optional(bool, true)
-    storage_mode_type                  = optional(string, "GeoRedundant")
+    public_network_access_enabled      = optional(bool)   # Default: true
+    soft_delete_enabled                = optional(bool)   # Default: true
+    storage_mode_type                  = optional(string) # Default: "GeoRedundant"
     tags                               = optional(map(string))
     encryption = optional(object({
       infrastructure_encryption_enabled = bool
       key_id                            = string
-      use_system_assigned_identity      = optional(bool, true)
+      use_system_assigned_identity      = optional(bool) # Default: true
       user_assigned_identity_id         = optional(string)
     }))
     identity = optional(object({
@@ -50,8 +50,8 @@ EOT
       type         = string
     }))
     monitoring = optional(object({
-      alerts_for_all_job_failures_enabled            = optional(bool, true)
-      alerts_for_critical_operation_failures_enabled = optional(bool, true)
+      alerts_for_all_job_failures_enabled            = optional(bool) # Default: true
+      alerts_for_critical_operation_failures_enabled = optional(bool) # Default: true
     }))
   }))
 }
