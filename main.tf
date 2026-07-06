@@ -34,8 +34,11 @@ resource "azurerm_recovery_services_vault" "recovery_services_vaults" {
   dynamic "monitoring" {
     for_each = each.value.monitoring != null ? [each.value.monitoring] : []
     content {
+      alerts_for_all_failover_issues_enabled         = monitoring.value.alerts_for_all_failover_issues_enabled
       alerts_for_all_job_failures_enabled            = monitoring.value.alerts_for_all_job_failures_enabled
+      alerts_for_all_replication_issues_enabled      = monitoring.value.alerts_for_all_replication_issues_enabled
       alerts_for_critical_operation_failures_enabled = monitoring.value.alerts_for_critical_operation_failures_enabled
+      email_notifications_for_site_recovery_enabled  = monitoring.value.email_notifications_for_site_recovery_enabled
     }
   }
 }
