@@ -1,3 +1,7 @@
+output "recovery_services_vaults_id" {
+  description = "Map of id values across all recovery_services_vaults, keyed the same as var.recovery_services_vaults"
+  value       = { for k, v in azurerm_recovery_services_vault.recovery_services_vaults : k => v.id }
+}
 output "recovery_services_vaults_classic_vmware_replication_enabled" {
   description = "Map of classic_vmware_replication_enabled values across all recovery_services_vaults, keyed the same as var.recovery_services_vaults"
   value       = { for k, v in azurerm_recovery_services_vault.recovery_services_vaults : k => v.classic_vmware_replication_enabled }
