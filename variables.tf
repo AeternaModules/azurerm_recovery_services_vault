@@ -36,16 +36,16 @@ EOT
     resource_group_name                = string
     sku                                = string
     classic_vmware_replication_enabled = optional(bool)
-    cross_region_restore_enabled       = optional(bool) # Default: false
+    cross_region_restore_enabled       = optional(bool)
     immutability                       = optional(string)
-    public_network_access_enabled      = optional(bool)   # Default: true
-    soft_delete_enabled                = optional(bool)   # Default: true
-    storage_mode_type                  = optional(string) # Default: "GeoRedundant"
+    public_network_access_enabled      = optional(bool)
+    soft_delete_enabled                = optional(bool)
+    storage_mode_type                  = optional(string)
     tags                               = optional(map(string))
     encryption = optional(object({
       infrastructure_encryption_enabled = bool
       key_id                            = string
-      use_system_assigned_identity      = optional(bool) # Default: true
+      use_system_assigned_identity      = optional(bool)
       user_assigned_identity_id         = optional(string)
     }))
     identity = optional(object({
@@ -53,11 +53,11 @@ EOT
       type         = string
     }))
     monitoring = optional(object({
-      alerts_for_all_failover_issues_enabled         = optional(bool) # Default: true
-      alerts_for_all_job_failures_enabled            = optional(bool) # Default: true
-      alerts_for_all_replication_issues_enabled      = optional(bool) # Default: true
-      alerts_for_critical_operation_failures_enabled = optional(bool) # Default: true
-      email_notifications_for_site_recovery_enabled  = optional(bool) # Default: true
+      alerts_for_all_failover_issues_enabled         = optional(bool)
+      alerts_for_all_job_failures_enabled            = optional(bool)
+      alerts_for_all_replication_issues_enabled      = optional(bool)
+      alerts_for_critical_operation_failures_enabled = optional(bool)
+      email_notifications_for_site_recovery_enabled  = optional(bool)
     }))
   }))
   # --- Unconfirmed validation candidates, derived from azurerm_recovery_services_vault's provider source ---
