@@ -11,7 +11,6 @@ Optional:
     - cross_region_restore_enabled
     - immutability
     - public_network_access_enabled
-    - soft_delete_enabled
     - storage_mode_type
     - tags
     - encryption (block):
@@ -39,7 +38,6 @@ EOT
     cross_region_restore_enabled       = optional(bool)
     immutability                       = optional(string)
     public_network_access_enabled      = optional(bool)
-    soft_delete_enabled                = optional(bool)
     storage_mode_type                  = optional(string)
     tags                               = optional(map(string))
     encryption = optional(object({

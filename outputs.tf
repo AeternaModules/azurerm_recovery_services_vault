@@ -46,10 +46,6 @@ output "recovery_services_vaults_sku" {
   description = "Map of sku values across all recovery_services_vaults, keyed the same as var.recovery_services_vaults"
   value       = { for k, v in azurerm_recovery_services_vault.recovery_services_vaults : k => v.sku if v.sku != null && length(v.sku) > 0 }
 }
-output "recovery_services_vaults_soft_delete_enabled" {
-  description = "Map of soft_delete_enabled values across all recovery_services_vaults, keyed the same as var.recovery_services_vaults"
-  value       = { for k, v in azurerm_recovery_services_vault.recovery_services_vaults : k => v.soft_delete_enabled if v.soft_delete_enabled != null }
-}
 output "recovery_services_vaults_storage_mode_type" {
   description = "Map of storage_mode_type values across all recovery_services_vaults, keyed the same as var.recovery_services_vaults"
   value       = { for k, v in azurerm_recovery_services_vault.recovery_services_vaults : k => v.storage_mode_type if v.storage_mode_type != null && length(v.storage_mode_type) > 0 }

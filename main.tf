@@ -9,7 +9,6 @@ resource "azurerm_recovery_services_vault" "recovery_services_vaults" {
   cross_region_restore_enabled       = each.value.cross_region_restore_enabled
   immutability                       = each.value.immutability
   public_network_access_enabled      = each.value.public_network_access_enabled
-  soft_delete_enabled                = each.value.soft_delete_enabled
   storage_mode_type                  = each.value.storage_mode_type
   tags                               = each.value.tags
 
