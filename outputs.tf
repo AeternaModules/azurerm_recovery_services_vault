@@ -12,11 +12,11 @@ output "recovery_services_vaults_cross_region_restore_enabled" {
 }
 output "recovery_services_vaults_encryption" {
   description = "Map of encryption values across all recovery_services_vaults, keyed the same as var.recovery_services_vaults"
-  value       = { for k, v in azurerm_recovery_services_vault.recovery_services_vaults : k => v.encryption if v.encryption != null && length(v.encryption) > 0 }
+  value       = { for k, v in azurerm_recovery_services_vault.recovery_services_vaults : k => one(v.encryption) if v.encryption != null && length(v.encryption) > 0 }
 }
 output "recovery_services_vaults_identity" {
   description = "Map of identity values across all recovery_services_vaults, keyed the same as var.recovery_services_vaults"
-  value       = { for k, v in azurerm_recovery_services_vault.recovery_services_vaults : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_recovery_services_vault.recovery_services_vaults : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "recovery_services_vaults_immutability" {
   description = "Map of immutability values across all recovery_services_vaults, keyed the same as var.recovery_services_vaults"
@@ -28,7 +28,7 @@ output "recovery_services_vaults_location" {
 }
 output "recovery_services_vaults_monitoring" {
   description = "Map of monitoring values across all recovery_services_vaults, keyed the same as var.recovery_services_vaults"
-  value       = { for k, v in azurerm_recovery_services_vault.recovery_services_vaults : k => v.monitoring if v.monitoring != null && length(v.monitoring) > 0 }
+  value       = { for k, v in azurerm_recovery_services_vault.recovery_services_vaults : k => one(v.monitoring) if v.monitoring != null && length(v.monitoring) > 0 }
 }
 output "recovery_services_vaults_name" {
   description = "Map of name values across all recovery_services_vaults, keyed the same as var.recovery_services_vaults"
